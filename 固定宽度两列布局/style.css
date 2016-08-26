@@ -1,0 +1,71 @@
+*{
+    margin:0;
+    padding: 0;
+}
+
+/*先为header，container，footer设置一个统一的样式，如宽度，水平居中*/
+#header,#container,#footer{
+    border: 2px solid blue;
+    margin:5px auto;
+    width:1000px;
+}
+
+img{
+    width:120px;
+    height:150px;
+    float: right;
+    margin:2px;
+    border: 1px solid gray;
+}
+
+/*使用绝对定位法*/
+/*#container{
+    position:relative;
+}
+
+#content{
+    margin:5px 214px 5px 5px;
+    border:2px solid blue;*/
+    /*因为浮动部分是脱离文档流的，当浮动部分高度高于包含的容器就会溢出
+    这样设置使其包含在外面的包含容器。*/
+    /*overflow:auto;
+    zoom:1;
+}*/
+
+/*使用绝对定位布局的时候，给高度小的部分设置absolute定位。
+如果给高度大的设置absolute定位，那么就会脱离文档流，这样footer部分就会飘上来。*/
+/*#sideBar{
+    position:absolute;
+    top:0;
+    right:0;
+    width:200px;
+    margin:5px;
+    border:2px solid blue;
+}*/
+
+
+
+/*使用浮动布局*/
+/*当左右两列的宽度和加起来正好是container的宽度时
+就可以一个设置左浮动一个设置右浮动；
+如果一边宽度自适应的话就只有固定一边宽度，另一边用margin值=上一边的宽度。*/
+#container{
+    overflow:auto;
+    zoom:1;
+}
+
+#content{
+    float:left;
+    width:786px;
+    margin:5px;
+    border:2px solid blue;
+}
+
+#sideBar{
+    float:right;
+    width:186px;
+    margin:5px;
+    border:2px solid blue;
+
+}
+

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>三列1-3-1中间列固定双侧列1：1布局</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+
+    <div id="header"><h1>Page Header</h1></div>
+
+    <div id="container"> 
+
+            <div id="naviWrap">
+                <div id="navi">
+                    <p>
+                        需要实现的效果是，中间列content部分宽度是300px，宽度固定;
+                        其余侧列部分navi和content以1：1的宽度布局，也即剩余宽度均分为50%，宽度变化。
+                    </p>
+                </div>
+            </div>
+
+            <div id="content">
+                <p>
+                    用wrap容器分别将navi和sideBar包裹起来，分别左右浮动，分别设定margin-left:-150px;margin-right:-150px;
+                    设定navi和content的margin-left:150px;maigin-right:150px;不设置浮动
+                    这样实现相对宽度和绝对宽度的结合来进行成比例的布局。思路和实现单侧列固定，剩余两列2：3布局一样。
+                </p>
+                <p>
+                    <h3>实现单侧列固定，剩余两列2：3布局思路</h3>
+                    <p>
+                        初步想法可以用一个wrap容器将两列包裹起来，然后形成1-2-1布局，但是这样做是不对的。
+                        因为wrap继承的是container的宽度，所以这时候的40%并不是（container的宽度减去200px）的40%，而是container整个宽度的60%。
+                        解决办法是再在wrap的外层套一个wrap容器，分别取名outerwrap和innerwrap。
+                        这时候，设置outerwrap的<b>width：100%来继承container的宽度</b>（不设置宽度为100%会出错，innerwrap的高度会是0不能在正常文档流中自由伸展高度），margin-left为-200px即向左移动了200px,它的宽度仍为container的宽度 浮动为左浮动；
+                        设置innerwrap的margin-left：200px，这时候innerwrap是在标准文档流上不给其设置浮动，所以宽度是总宽度减去200px了。
+                    </p>
+                </p>
+            </div>
+
+        <div id="sideBarWrap">
+            <div id="sideBar">
+                设置sideBar的宽度为固定的200px;向右浮动。
+            </div>
+        </div>
+
+    </div>
+
+    <div id="footer">Footer.....</div>
+
+</body>
+</html>

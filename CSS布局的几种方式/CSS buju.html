@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>CSS布局</title>
+	<style type="text/css">
+		#main{
+			width: 600px;
+			margin: 0 auto;
+			background-color: red;
+		}
+
+		.simple {
+			  width: 500px;
+			  margin: 20px auto;
+			  background-color:red;
+			  -webkit-box-sizing: border-box;
+			     -moz-box-sizing: border-box;
+			          box-sizing: border-box;
+			}
+
+		.fancy {
+			  width: 500px;
+			  margin: 20px auto;
+			  padding: 50px;
+			  background-color:red;
+			  border: solid blue 10px;
+			  -webkit-box-sizing: border-box;
+			     -moz-box-sizing: border-box;
+			          box-sizing: border-box;
+			}
+
+		.box {
+		  float: left;
+		  width: 200px;
+		  height: 100px;
+		  border:2px solid blue;
+		}
+
+		#container{
+			width: 400px;
+			height: 100px;
+			border:2px solid blue;
+		}
+
+		.content{
+			width: 200px;
+			height: 200px;
+			background-color: red;
+			float: right;
+		}
+
+		#container{
+			width: 400px;
+			height: 100px;
+			border:2px solid blue;
+		}
+
+		.clearfix{
+			width: 400px;
+			height: 100px;
+			border:2px solid blue;
+			overflow: auto;
+			zoom:1;
+		}
+
+		.container1{
+			width: 1200px;
+			height: 150px;
+			border:2px double yellow;
+		}
+
+		.nav{
+			float: left;
+			width: 25%;
+			border:2px solid red;
+		}
+
+		.section{
+			margin-left:25%;
+			border:2px solid blue;
+		}
+
+		.nav li{
+			font-weight: bold;
+		}
+
+		@media screen and (min-width:600px){
+			.nav1{
+				float: left;
+				width: 25%;
+				border:2px solid red;
+			}
+			.section1{
+				margin-left:25%;
+				border:2px solid blue;
+			}
+		}
+
+		@media screen and (max-width: 599px){
+			.nav1 li{
+				display: inline;
+				font-weight: bold;
+			}
+		}
+
+		.nav2{
+			display: inline-block;
+			vertical-align: top;
+			width: 25%;
+			border:2px solid red;
+		}
+
+		.section2{
+			display: inline-block;
+			vertical-align: top;
+			width: 65%;/*刚刚设置75%边框会占位置，这样只能设小于75%留出空隙才管用。*/
+			border:2px solid blue;
+		}
+
+		.column{
+			padding:1em;
+			column-count:3;
+			column-gap:1em;
+			-moz-column-count:3;
+			-moz-column-gap:1em;
+			-webkit-column-count:3;
+			-webkit-column-gap:1em;
+			width: 170px;
+			height: 200px;
+			border:2px solid yellow;
+		}
+
+		.container2{
+			display: -webkit-flex;
+			display: flex;
+			border:2px solid yellow;
+		}
+
+		.nav3{
+			width: 200px;
+			border:2px solid red;
+		}
+
+		.flex-column{
+			-webkit-flex:1;
+			flex:1;
+			border:2px solid blue;
+		}
+
+		.initial{
+			-webkit-flex:initial;
+			flex:initial;
+			width:200px;
+			min-width:100px;
+			border:2px solid blue;
+		}
+
+		.none{
+			-webkit-flex:none;
+			flex:none;
+			width: 200px;
+			border:2px solid blue;
+		}
+
+		.flex1{
+			-webkit-flex:1;
+			flex:1;
+			border:2px solid red;
+		}
+
+		.flex2{
+			-webkit-flex:2;
+			flex:2;
+			border:2px solid red;
+		}
+
+		.vertical-container {
+		  height: 300px;
+		  display: -webkit-flex;
+		  display:         flex;
+		  -webkit-align-items: center;
+		          align-items: center;
+		  -webkit-justify-content: center;
+		          justify-content: center;
+		          border:2px solid yellow;
+		}
+
+		.center{
+			width: 200px;
+			height: 100px;
+			border:2px solid red;
+		}
+	</style>
+</head>
+<body>
+	<h2>使用max-width来使窗口与盒模型宽度自适应</h2>
+	<div id="main">
+		用max-width来替代width可以使浏览器更好的处理小窗口的情况，这点在移动设备上显得很重要。设置为max-width当窗口变小的时候，文章内容会随着窗口的变化自动伸缩，设置为width，窗口变小时，内容也会随着窗口变小隐藏。
+	</div>
+
+	<h2>使用box-sizing使padding和border不增加视觉宽度</h2>
+	<div class="simple">
+		如果设置盒子模型的宽度是一样的，但是由于border和padding属性会使盒模型的视觉宽度不同。此时，用border-sizing：border-box；声明可以使内边距padding和边框border不会增加他的宽度。
+	</div>
+		<div class="fancy">
+		如果设置盒子模型的宽度是一样的，但是由于border和padding属性会使盒模型的视觉宽度不同。此时，用border-sizing：border-box；声明可以使内边距padding和边框border不会增加他的宽度。
+	</div>
+	
+	<!-- 把section写在这里和把section写在div后面一样<section style="background-color: red; width: 400px;height: 200px;"> -->
+	<div class="box"></div>
+	<section style="background-color: red; width: 400px;height: 200px;">
+	在这个例子中， section 元素实际上是在 div 之后的（译注：DOM结构上）。然而 div 元素是浮动到左边的，于是 section 中的文字就围绕了 div ，并且 section 元素包围了整个元素。如果我们想让 section 显示在浮动元素之后呢
+	</section>
+
+	<div id="container">
+	    <div class="content">
+	    	当使用浮动的时候，浮动比父元素容器还高就溢出到容器的外面，这时候可以给父元素加一个类名clearfix{overflow：aoto;zoom:1;最后一句用来兼容IE6}
+    	</div>
+    </div>
+
+	<h2>作为对比</h2>
+    <div class="clearfix">
+	    <div class="content">
+	    	当使用浮动的时候，浮动比父元素容器还高就溢出到容器的外面，这时候可以给父元素加一个类名clearfix{overflow：aoto;zoom:1;最后一句用来兼容IE6}
+    	</div>
+    </div>
+
+	<h2>响应式设计布局，应用媒体查询</h2>
+	<h3>未应用媒体查询</h3>
+	<div class="container1">
+		<nav class="nav">
+			<ul>
+				<li>html</li>
+				<li>CSS</li>
+				<li>javaScript</li>
+				<li>jQuery</li>
+			</ul>
+		</nav>
+		<section class="section">
+			“响应式设计（Responsive Design）”是一种让网站针对不同的浏览器和设备“响应”不同显示效果的策略，这样可以让网站在任何情况下显示的很棒！
+
+			媒体查询是做此事所需的最强大的工具。让我们使用百分比宽度来布局，然后在浏览器变窄到无法容纳侧边栏中的菜单时，把布局显示成一列：
+		</section>
+	</div>
+	<h3>作为对比</h3>
+		<div class="container1">
+		<nav class="nav1">
+			<ul>
+				<li>html</li>
+				<li>CSS</li>
+				<li>javaScript</li>
+				<li>jQuery</li>
+			</ul>
+		</nav>
+		<section class="section1">
+			“响应式设计（Responsive Design）”是一种让网站针对不同的浏览器和设备“响应”不同显示效果的策略，这样可以让网站在任何情况下显示的很棒！
+
+			媒体查询是做此事所需的最强大的工具。让我们使用百分比宽度来布局，然后在浏览器变窄到无法容纳侧边栏中的菜单时，把布局显示成一列：
+		</section>
+	</div>
+
+	<h2>使用inline-block布局</h2>
+	<div class="container1">
+		<nav class="nav2">
+			<ul>
+				<li>html</li>
+				<li>CSS</li>
+				<li>javaScript</li>
+				<li>jQuery</li>
+			</ul>
+		</nav>
+		<section class="section2">
+			可以使用 inline-block 来布局。有一些事情需要你牢记：
+
+			vertical-align 属性会影响到 inline-block 元素，可能会把它的值设置为 top 。
+			需要设置每一列的宽度
+			如果HTML源代码中元素之间有空格，那么列与列之间会产生空隙
+		</section>
+	</div>
+	
+	<h2>CSS多列布局column</h2>
+	<div class="column">
+		用CSS column 实现文字的多列布局。这个例子是三列布局， CSS columns是很新的标准，所以你需要使用前缀，并且它不被IE9及以下和Opera Mini支持。
+	</div>
+
+	<h2>使用flex进行布局</h2>
+	<h3>使用flex的简单布局</h3>
+	<div class="container2">
+		<nav class="nav3">
+			<ul>
+				<li>html</li>
+				<li>CSS</li>
+				<li>javaScript</li>
+				<li>jQuery</li>
+			</ul>
+		</nav>
+		<section class="flex-column">
+			新的 flexbox 布局模式被用来重新定义CSS中的布局方式。很遗憾的是最近规范变动过多，导致各个浏览器对它的实现也有所不同。不过我仍旧想要分享一些例子，来让你知道即将发生的改变。这些例子目前只能在支持 flexbox 的 Chrome 浏览器中运行，基于最新的标准。
+		</section>
+	</div>
+	<h3>使用flex进行复杂多列布局</h3>
+	<div class="container2">
+		<div class="initial">空间足够的时候，我的宽度是200px，如果空间不足，我会变窄到100px，但不会再窄了。</div>
+		<div class="none">无论窗口如何变化，我的宽度一直是200px。</div>
+		<div class="flex1">我会占满剩余宽度的1/3。</div>
+		<div class="flex2">我会占满剩余宽度的2/3。</div>
+	</div>	
+	
+	<h3>使用flex实现垂直居中</h3>
+	<div class="vertical-container">
+		<div class="center">用CSS flex实现居中布局</div>
+	</div>
+
+</body>
+</html>

@@ -1,0 +1,67 @@
+*{
+	margin: 0;
+	padding:0;
+}
+
+body{
+	padding:20px;
+	font-family:Arial,'Times New Roman','Microsoft YaHei',SimHei;
+}
+
+img{
+	width: 78px;
+	height: 78px;
+}
+
+#container{
+	padding: 20px;
+	background-color: #eee;
+	border:1px solid #999;
+	overflow: auto;
+	zoom:1;
+	min-width: 600px;
+}
+
+.left-bar{
+	width: 158px;
+	padding: 20px; 
+	background-color: #fff;
+	float: left;
+	border:1px solid #999;
+}
+
+.logo-team{
+	float: left;
+}
+
+.team-name{
+	margin-left:90px;
+}
+
+.right-bar{
+	width: 118px;
+	border:1px solid #999;
+	background-color: #fff;
+	float: right;
+	padding-bottom: 20px;
+}
+
+.logo-personal{
+	display: block;
+	float: left;
+	margin: 20px 20px 0;
+	border:1px solid #999;
+}
+
+.center-bar{
+	background-color: #fff; 
+	border:1px solid #999;
+	margin-left:220px;
+	margin-right:140px;
+	padding: 20px;
+}
+
+p{
+	font-weight: bold;
+	line-height: 2;
+}

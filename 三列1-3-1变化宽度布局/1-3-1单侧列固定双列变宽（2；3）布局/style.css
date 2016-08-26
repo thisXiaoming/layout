@@ -1,0 +1,49 @@
+/*三列1-3-1单列固定双列变宽布局*/
+/*应用浮动方法*/
+
+*{
+    margin:0;
+    padding: 0;
+}
+
+#container,#header,#footer{
+    width: 85%;
+    margin:0 auto;
+    background-color: lightblue;
+}
+
+#outerWrap{
+    float:left;
+    margin-left:-200px;
+    background-color: sandybrown;
+    width: 100%;
+}
+
+#innerWrap{
+    margin-left:200px;
+}
+
+
+
+#navi{
+    width:40%;
+    float:left;
+    background-color: darkred;
+}
+
+#content{
+    width:59.5%;
+    float:right;
+    background-color: yellow;
+}
+
+#sideBar{
+    width:200px;
+    float:right;
+    background-color: blue;
+}
+
+#footer{
+    clear: both;
+}
+

@@ -1,0 +1,36 @@
+
+/*单侧列变化，两列固定布局*/
+
+*{
+    margin:0;
+    padding: 0;
+}
+
+#container,#header,#footer{
+    width: 85%;
+    margin:0 auto;
+    background-color: lightblue;
+    min-width:800px;
+    /*需要设置最小宽度防止窗口变得太小的时候会重叠，最小宽度要大于两列固定宽度的和*/
+}
+
+#navi{
+    margin-right:750px;
+    background-color: blue;
+}
+
+#content{
+    width:500px;
+    background-color: yellow;
+    float:right;
+}
+
+#sideBar{
+    width:250px;
+    background-color: darkred;
+    float:right;
+}
+
+#footer{
+    clear:both;
+}

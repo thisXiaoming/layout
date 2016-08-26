@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>三列1-3-1中间列固定双侧列1：1布局</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+
+    <div id="header"><h1>Page Header</h1></div>
+
+    <div id="container"> 
+
+                <div id="navi">
+                    <p>
+                        需要实现的效果是，两边列宽度固定分别是150px,250px,中间列宽度变化。
+                        可以直接用浮动加margin来布局，要注意文档中各个部分的书写顺序，顺序会影响浮动的效果。
+                        设置navi固定宽度150px，向左浮动。
+                    </p>
+                </div>
+
+            <div id="sideBar">
+                设置sideBar的宽度为固定的250px;向右浮动。
+            </div>
+
+         <div id="content">
+                <p>
+                   设置内容的margin值左150右250，不浮动
+                </p>
+                <p>要设置最小宽度，最小宽度应该大于两固定列的和，防止发生重叠。</p>
+                <p>
+                    Some Text！！Some Text！！Some Text！！Some Text！
+                    ！Some Text！！Some Text！！Some Text！！Some Text！
+                    ！Some Text！！Some Text！！Some Text！！Some Text！
+                    ！Some Text！！Some Text！！Some Text！！Some Text！
+                    ！Some Text！！Some Text！！Some Text！！Some Text！
+                    ！Some Text！！Some Text！！Some Text！！Some Text！
+                    ！Some Text！！Some Text！！Some Text！！Some Text！
+                    ！Some Text！！Some Text！！Some Text！！Some Text！
+                    ！Some Text！！Some Text！！Some Text！！
+                </p>
+            </div>
+
+    </div>
+
+    <div id="footer">Footer.....</div>
+
+</body>
+</html>

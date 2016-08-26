@@ -1,0 +1,28 @@
+*{
+    margin:0;
+    padding:0;
+}
+
+#header,#container,#footer{
+    width:85%;
+    margin:0 auto;
+    min-width:500px;
+    max-width:800px;
+    background-color: blue;
+}
+
+#content{
+    width:66%;
+    float:left;
+    background-color: darkred;
+}
+
+#sideBar{
+    width:33%;
+    float:right;
+    background-color:yellow;
+}
+
+#footer{
+    clear:both;
+}

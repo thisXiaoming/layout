@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>1-2-1双列变宽布局</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+   <div id="header"><h1>Page Header</h1></div>
+   <div id="container">
+       <div id="content">   
+           <p>This is text ! This is text !This is text !
+               This is text ! This is text !This is text !
+               This is text ! This is text !This is text !
+               This is text ! This is text !This is text !
+               This is text ! This is text !This is text !
+               This is text ! This is text !This is text !
+               This is text ! This is text !This is text !
+               This is text ! This is text !This is text !
+               This is text ! This is text !This is text !
+               This is text ! This is text !This is text !
+           </p>
+        </div>
+       <div id="sideBar">
+           <p>
+               This is text !This is text !This is text !
+                首先给header，container，footer设置同样的宽度设置为屏幕大小的85%；
+                当宽度小于800的时候按比例缩放，当宽度小于500的时候就不再缩放了。
+                然后设置content的宽度为66%；设置sideBar的宽度为33%；两者加起来是container的100%
+                一个设置左浮动，一个设置右浮动，这样就会实现变宽布局。
+           </p>
+        </div>
+   </div>
+   <div id="footer">Footer.....</div>
+
+</body>
+</html>

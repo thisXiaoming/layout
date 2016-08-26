@@ -1,0 +1,47 @@
+/*三列1-3-1中间列固定双侧列1：1布局
+使用浮动*/
+
+*{
+ margin:0;
+ padding:0;
+}
+
+#header,#container,#footer{
+    width:85%;
+    margin:0 auto;
+    background-color: lightblue;
+}
+
+#naviWrap{
+    width:50%;
+    margin-left:-150px;
+    float:left;
+    background-color: burlywood;
+}
+
+#navi{
+    margin-left:150px;
+    background-color: yellow;
+}
+
+#sideBarWrap{
+    width:50%;
+    margin-right:-150px;
+    float:right;
+    background-color: mediumslateblue;
+}
+
+#sideBar{
+    margin-right:150px;
+    background-color: greenyellow;
+}
+
+#content{
+    width:300px;
+    float:left;
+    background-color: darkred;
+}
+
+#footer{
+    clear:both;
+}

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>1-2-1单列变宽布局</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+   <div id="header"><h1>Page Header</h1></div>
+   <div id="container">
+      <div id="sideBar">
+        <p>
+            This is text ! This is text !This is text !
+            This is text ! This is text !This is text !
+            This is text ! This is text !This is text !
+            
+            This is text ! This is text !This is text !
+            This is text !This is text !This is text !
+            
+        </p>
+      </div>
+      <div id="contentWrap">
+            <div id="content">   
+                <p>
+                    首先给header，container，footer设置同样的宽度设置为屏幕大小的85%；
+                </p>
+                <h3>
+                    方法一：用绝对定位法实现变宽度两列布局，注意要给较小宽度的部分设置absolute定位，否则footer会上移。
+                </h3>
+                <p>
+                        给container加上relative定位做基准
+                        给右侧sideBar(较小宽度)设置absolute定位 top:0;right:0;固定宽度width:300px;
+                        给左侧content设置margin-right：300px;
+                        实现右侧固定左侧宽度变化的布局
+                </p>
+                <p>
+                    <h3>
+                        绝对定位法有缺陷，假如随着窗口的变化，固定部分也即absolute定位的部分其高度大于变化部分的高度之后，
+                        footer就会上移。所以下面介绍浮动定位法。
+                    </h3>
+                </p>
+                <p>
+                   <h3> 方法二：浮动定位法</h3>
+                    <p>浮动实现单列变宽,右边固定宽度300px，左边maigin-right:300px;</p>
+                </p>
+                </div>
+      </div>
+   </div>
+   <div id="footer">Footer.....</div>
+
+</body>
+</html>

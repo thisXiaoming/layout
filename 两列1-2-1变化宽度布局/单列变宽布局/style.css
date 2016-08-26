@@ -1,0 +1,50 @@
+/*1-2-1单列变宽布局*/
+
+*{
+    margin:0;
+    padding:0;
+}
+
+#header,#container,#footer{
+    width:85%;
+    margin:0 auto;
+}
+
+#header,#footer{
+        background-color: blue;
+}
+
+/*绝对定位法,注意两列定位的地方要给高度较小的栏加绝对定位，否则footer会上移。*/
+/*#container{
+    position:relative;
+}
+
+#sideBar{
+    position:absolute;
+    top:0;
+    right:0;
+    width:300px;
+    background-color: darkred;
+}
+
+#content{
+    margin-right:300px;
+    background-color: yellow;
+}*/
+
+
+/*浮动实现单列变宽,右边固定宽度300px，左边maigin-right:300px;*/
+#content{
+    margin-right:300px;
+    background-color: yellow;
+}
+
+#sideBar{
+    float:right;
+    width:300px;
+    background-color: darkred;
+}
+
+#footer{
+    clear:both;
+}

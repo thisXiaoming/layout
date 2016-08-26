@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>1-((1-2)+1)-1布局</title>
+    <link rel="stylesheet" type="text/css" href="magic-style.css">
+    <!--在IE6中不支持min-width,max-width属性,需要加入以下js文件。下载网址：http://www.doxdesk.com-->
+    <script type="text/javascript" src="minmax.js"></script>
+</head>
+<body>
+    <div id="header">
+        <h3>1-((1-2)+1)-1布局,分为三个部分header，container，footer。设定同一宽度800px</h3>
+        <p>魔术布局是为了实现当窗口小于800的时候，右边side的部分自动移动到content的下面横向排列，当宽度小于600的时候不再下移。</p>
+        <p>这时候设置这三个部分的宽度为width:100%;最大宽度max-width:800pc; min-width:600px;
+    </div>
+    <div id="container">
+       <div id="content">
+               <div id="banner">
+                   <h3>Banner</h3>
+                   <p>
+                      <h3>给content设置宽度600.不用给banner设置宽度，其宽度为content宽度600</h3>
+                       Some Text  Some Text  Some Text  Some Text  Some Text 
+                        Some Text  Some Text  Some Text  Some Text  Some Text 
+                         Some Text  Some Text  Some Text  Some Text  Some Text 
+                          Some Text  Some Text  Some Text  Some Text  Some Text 
+                   </p>
+                </div>
+               <div id="coulmn">
+                    <div id="coulmn-a">
+                        <img alt="img" title="img" src="img.gif">
+                        <p>
+                           <h3> 给每个coulmn设置宽度300px;float:left;</h3>
+                        Some Text  Some Text  Some Text  Some Text  Some Text 
+                        Some Text  Some Text  Some Text  Some Text  Some Text 
+                        </p> 
+                        <p>
+                        Some Text  Some Text  Some Text  Some Text  Some Text 
+                        Some Text  Some Text  Some Text  Some Text  Some Text 
+                        </p> 
+                        <p>
+                        Some Text  Some Text  Some Text  Some Text  Some Text 
+                        Some Text  Some Text  Some Text  Some Text  Some Text 
+                        </p>
+                    </div>
+                    <div id="coulmn-b">
+                        <img alt="img" title="img" src="img.gif">
+                        <p>
+                            <h3> 给每个coulmn设置宽度300px;float:left;</h3>
+                        Some Text  Some Text  Some Text  Some Text  Some Text 
+                        Some Text  Some Text  Some Text  Some Text  Some Text 
+                        </p>
+                        <p>
+                        Some Text  Some Text  Some Text  Some Text  Some Text 
+                        Some Text  Some Text  Some Text  Some Text  Some Text 
+                        </p>
+                        <p>
+                        Some Text  Some Text  Some Text  Some Text  Some Text 
+                        Some Text  Some Text  Some Text  Some Text  Some Text 
+                        </p>
+                    </div>
+               </div>
+       </div>
+       <div id="sideBar">
+           <div class="side">
+               <p>
+                   <h3>给side部分设置宽度200，左浮动</h3>
+                    Some Text  Some Text  Some Text  Some Text  Some Text 
+                    Some Text  Some Text  Some Text  Some Text  Some Text 
+                    Some Text  Some Text  Some Text  Some Text  Some Text 
+                </p>
+           </div>
+           <div class="side">
+                <p>
+                    <h3>给side部分设置宽度200，左浮动</h3>
+                    Some Text  Some Text  Some Text  Some Text  Some Text 
+                    Some Text  Some Text  Some Text  Some Text  Some Text 
+                    Some Text  Some Text  Some Text  Some Text  Some Text 
+                </p>
+           </div>
+           <div class="side">
+                <p>
+                    <h3>给side部分设置宽度200，左浮动</h3>
+                    Some Text  Some Text  Some Text  Some Text  Some Text 
+                    Some Text  Some Text  Some Text  Some Text  Some Text 
+                    Some Text  Some Text  Some Text  Some Text  Some Text 
+                </p>
+           </div>
+       </div>
+   </div>
+   <div id="footer"><h3>footer部分需要清除浮动</h3></div>
+</body>
+</html>

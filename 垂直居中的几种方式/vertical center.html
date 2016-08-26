@@ -1,0 +1,210 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">  
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta charset="UTF-8">
+	<title>vertical center</title>
+	<style type="text/css">
+
+		#wrapper{
+			display: table;
+			float: left;
+			margin: 20px;
+		}
+
+		#cell{
+			width: 300px;
+			height: 200px;
+			display: table-cell;
+			vertical-align: middle;
+			background-color: red;
+		}
+
+		.content1{
+			width: 200px;
+			height: 100px;
+			background-color: yellow;
+		}
+		
+		.container{
+			position: relative;
+			width: 300px;
+			height: 200px;
+			background-color: red;
+			float: left;
+			margin: 20px;
+		}
+		.content2{
+			position:absolute;
+			top:50%;
+			width: 200px;
+			height: 100px;
+			margin-top: -50px;
+			background-color: yellow;
+		}
+
+
+		#floater {
+			/*使用这个的时候要为外面的盒子设置高度为固定像素值或者100%。*/
+		    float: left;
+		    height: 50%;
+		    margin-bottom: -50px;
+		    width: 1px;
+		}
+
+		#center{
+		    position: relative;
+		    clear: left;
+		    height: 100px;
+		    width: 200px;
+		    margin: 0 auto;
+		    background: #fff;
+		    border: 4px solid #666;
+		}
+
+		#top {
+		    position:absolute;
+		    top:0;
+		    right: 70%;
+		    bottom: 0;
+		    left: 0;
+		    padding: 5px;
+		    margin:10px;
+		}
+
+		#content3 {
+		    position:absolute;
+		    top:0;
+		    right: 0;
+		    bottom: 0;
+		    left: 30%;
+		    padding: 5px;
+		    margin:10px;
+		    overflow: auto;
+		}
+
+		#content4{
+			position: absolute;
+			top:0;
+			bottom:0;
+			left: 0;
+			right: 0;
+			height: 100px;
+			width: 70%;
+			margin:auto;
+			border: 4px solid #666;
+		}
+
+		#content5{
+			width: 300px;
+			
+			height: 200px;
+			line-height: 200px;
+			background-color: yellow;
+			
+			float: right;
+		}
+
+		.vertical-container {
+			margin-top: 500px;
+			float: left;
+		  height: 300px;
+		  display: -webkit-flex;
+		  display:         flex;
+		  -webkit-align-items: center;
+		          align-items: center;
+		  -webkit-justify-content: center;
+		          justify-content: center;
+		          border:2px solid yellow;
+		}
+
+		.center{
+			width: 200px;
+			height: 100px;
+			border:2px solid red;
+		}
+	</style>
+</head>
+<body>
+
+	<!-- 第一种垂直居中 -->
+	<div id="wrapper">
+		<div id="cell">
+			<div class="content1">
+				<p>
+					这个方法把一些 div 的显示方式设置为表格，因此我们可以使用表格的 vertical-align property 属性。
+				</p>
+				<p>优点：</p>
+				<p><b>content</b>可以动态改变高度（不需要再CSS中定义），当<b>wrapper</b>里面没有足够的空间时，<b>content</b>不会被截断</p>
+				<p>缺点：Internet Explorer（甚至IE8 beta）中是无效的；会产生很多嵌套标签。</p>
+			</div>
+		</div>
+	</div>
+	
+	<!-- 第二种垂直居中 -->
+	<!-- 这里面包括下面的container容器，都是为了视觉上看垂直居中设置的，如果没有container就是相对于整个html居中，所以至少要给html设置一个固定的高度，如100%或者像素值。 -->
+	<div class="container">
+		<div class="content2">
+			<p>
+				这个方法使用绝对定位的 div，把它的 top 设置为 50％，top margin 设置为负的 content 高度。这意味着对象必须在 CSS 中指定固定的高度。
+
+				因为有固定高度，或许你想给 content 指定 overflow:auto，这样如果 content 太多的话，就会出现滚动条，以免content 溢出。
+			</p>
+			<p>优点：</p>
+			<p>适用于所有的浏览器，不需要嵌套标签</p>
+			<p>缺点</p>
+			<p>没有足够的空间时，<b>content</b>会消失（类似于div在body，用户缩小浏览器的时候不出现滚动条的情况。）</p>
+		</div>
+	</div>
+
+	 <!-- 第三种垂直居中 --> 
+	 <div class="container">
+		<div id="floater"></div>
+		<div id="center">
+			<div id="top">  
+			    <h4>Title</h4>
+			</div>
+			<div id=content3>
+				<p>
+					这种方法，在 content 元素外插入一个 div。设置此 div height:50%; margin-bottom:-contentheight;。 
+					content 清除浮动，并显示在中间。
+				</p>
+				<p>优点：</p>
+				<p>适用于所有浏览器
+				没有足够空间时(例如：窗口缩小) content 不会被截断，滚动条出现</p>
+				<p>缺点</p>
+				<p>唯一我能想到的就是需要额外的空元素了(也没那么糟，又是另外一个话题)</p>
+			</div>
+		</div>
+	</div>
+
+	<!-- 第四种垂直居中 -->
+	<div class="container">
+		<div id="content4">
+			<p>
+			这个方法使用了一个 position:absolute，有固定宽度和高度的 div。这个 div 被设置为 top:0; bottom:0;。但是因为它有固定高度，其实并不能和上下都间距为 0，因此 margin:auto; 会使它居中。使用 margin:auto;使块级元素垂直居中是很简单的。
+			</p>
+			<p>优点：</p>
+			<p>简单</p>
+			<p>缺点</p>
+			<p>IE(IE8 beta)中无效
+			无足够空间时，content 被截断，但是不会有滚动条出现</p>
+		</div>
+	</div>
+
+	<!-- 第五种垂直居中，只适用于单行居中 -->
+	<div id="content5">
+	把line-height设置为height 值,优点：适用于所有浏览器
+	无足够空间时不会被截断
+	缺点：
+
+	只对文本有效(块级元素无效)
+	多行时，断词比较糟糕
+	</div>
+
+	<h3>使用flex实现垂直居中</h3>
+	<div class="vertical-container">
+		<div class="center">用CSS flex实现居中布局</div>
+	</div>
+
+</body>
+</html>
